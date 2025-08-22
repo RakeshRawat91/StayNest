@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Basic AWS CloudFormation Template to Create an EC2 Instance
+
+Parameters:
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access
+    Type: String
+
+Resources:
+  MyEC2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      InstanceType: "t2.micro"
+      ImageId: "ami-0c55b159cbfafe1f0" # Example Amazon Linux AMI ID
+      KeyName: !Ref KeyName
+
+Outputs:
+  InstanceId:
+    Description: EC2 Instance ID
+    Value: !Ref MyEC2Instance
+  PublicIP:
+    Description: Public IP Address of the EC2 Instance
+    Value: !GetAtt MyEC2Instance.PublicIp

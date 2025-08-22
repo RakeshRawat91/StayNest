@@ -1,0 +1,106 @@
+<!-- <% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <div class="my-section">
+        <center><h1>Welcome to StayNest</h1></center>
+    </div>
+</body> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayNest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .background-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .background-cell {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative; /* Allows absolute positioning inside */
+        }
+
+        .background-cell::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Dark overlay, adjust opacity as needed */
+            z-index: 1;
+        }
+
+        #image1 {
+            background-image: url('https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        #image2 {
+            background-image: url('https://i0.wp.com/theluxurytravelexpert.com/wp-content/uploads/2019/07/header4.jpg?fit=1300%2C731&ssl=1');
+        }
+
+        #image3 {
+            background-image: url('https://w0.peakpx.com/wallpaper/334/799/HD-wallpaper-beautiful-house-architecture-beautiful-house-houses.jpg');
+        }
+
+        #image4 {
+            background-image: url('https://img.freepik.com/free-photo/backyard-water-contemporary-architecture-sky_1203-4963.jpg?w=1060&t=st=1727810255~exp=1727810855~hmac=542eac2e6ec3fa262e623ec471643a0c1403efae52dca26d17e8aa63fa1d3b8a');
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2; /* Ensure it's above the dark overlay */
+            color: white;
+            text-align: center;
+            text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-grid">
+        <div class="background-cell" id="image1"></div>
+        <div class="background-cell" id="image2"></div>
+        <div class="background-cell" id="image3"></div>
+        <div class="background-cell" id="image4"></div>
+    </div>
+    <div class="overlay-text">
+        <h1>Welcome to StayNest</h1>
+        <p>Explore and find your perfect nest!</p>
+    </div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,109 @@
+<!-- <% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <h3>Listing Details : </h3>
+    <ul>
+        <li> <%= listing.title %> </li>
+        <li> <%= listing.description %> </li>
+        <li> &#8377;<%= listing.price.toLocaleString("en-IN") %> </li>
+        <li> <%= listing.location %> </li>
+        <li> <%= listing.country %> </li>
+    </ul>
+    <br />
+    
+    <a href="/listings/<%= listing._id %>/edit">
+        <button class="btn btn-dark">Edit</button>
+    </a>
+    <br /><br />
+    <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+        <button class="btn btn-dark">Delete</button>
+    </form>
+    <br />
+    <a href="/listings/<%= listing._id %>/home">
+        <button class="btn btn-dark">Rent</button>
+    </a>
+</body> -->
+
+<!-- <% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <h3>Listing Details : </h3>
+    <ul>
+        <li> <%= listing.title %> </li>
+        <li> <%= listing.description %> </li>
+        <li> &#8377;<%= listing.price.toLocaleString("en-IN") %> </li>
+        <li> <%= listing.location %> </li>
+        <li> <%= listing.country %> </li>
+    </ul>
+    <br />
+
+    <% if(listing.rented) { %>
+        <form method="POST" action="/listings/<%=listing._id%>/unrent">
+            <button class="btn btn-dark">Unrent</button>
+        </form>
+    <% } else { %>
+        <form method="POST" action="/listings/<%=listing._id%>/rent">
+            <button class="btn btn-dark">Rent</button>
+        </form>
+    <% } %>
+    <br />
+    
+    <a href="/listings/<%= listing._id %>/edit">
+        <button class="btn btn-dark">Edit</button>
+    </a>
+    <br /><br />
+    <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+        <button class="btn btn-dark">Delete</button>
+    </form>
+</body> -->
+
+
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <h3>Listing Details:</h3>
+    <ul>
+        <li><%= listing.title %></li>
+        <li><%= listing.description %></li>
+        <li>&#8377;<%= listing.price.toLocaleString("en-IN") %></li>
+        <li><%= listing.location %></li>
+        <li><%= listing.country %></li>
+    </ul>
+    <br />
+
+    <% if (listing.rented) { %>
+        <form method="POST" action="/listings/<%= listing._id %>/unrent">
+            <button class="btn btn-dark">Unrent</button>
+        </form>
+    <% } else { %>
+        <form method="POST" action="/listings/<%= listing._id %>/rent">
+            <button class="btn btn-dark">Rent</button>
+        </form>
+    <% } %>
+    <br />
+
+    <a href="/listings/<%= listing._id %>/edit">
+        <button class="btn btn-dark">Edit</button>
+    </a>
+    <br /><br />
+    <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+        <button class="btn btn-dark">Delete</button>
+    </form>
+
+    <hr>
+
+    <!-- Chat Box Section -->
+    <div id="chat-box">
+        <h4>Chat with the Owner</h4>
+
+        <!-- Display Chat Messages -->
+        <div id="messages">
+            <% listing.messages.forEach(message => { %>
+                <p><strong><%= message.sender.username %>:</strong> <%= message.text %> <small>(<%= message.createdAt.toLocaleString() %>)</small></p>
+            <% }) %>
+        </div>
+
+        <!-- Message Input Form -->
+        <form action="/listings/<%= listing._id %>/message" method="POST">
+            <input type="text" name="message" placeholder="Type your message here..." required>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </div>
+</body>

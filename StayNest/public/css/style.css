@@ -1,0 +1,55 @@
+.navbar {
+    height: 2cm;
+    z-index: 2; 
+    /* color: white !important; */
+    /* text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.537); */
+    font-size: 19px;
+    font-weight: 500;
+    /* background-color: white; */
+}
+.fa-house{
+    color: rgb(6, 71, 74);
+    font-size: 1cm;
+}
+.nav-link {
+    color: #222222 !important;
+}
+
+/* cards */
+.card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text p {
+    font-weight: 400;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+/* Card Effect */
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+.my-section {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+}
